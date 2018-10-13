@@ -6,19 +6,30 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-alert("Hello");
+var btn = document.getElementById("btn");
+var task = document.getElementById("task");
 
-var Teste =
+var ToDoList =
 /*#__PURE__*/
 function () {
-  function Teste() {
-    _classCallCheck(this, Teste);
+  function ToDoList() {
+    _classCallCheck(this, ToDoList);
+
+    this.toDos = [];
   }
 
-  _createClass(Teste, [{
-    key: "metodo",
-    value: function metodo() {}
+  _createClass(ToDoList, [{
+    key: "addToDo",
+    value: function addToDo(task) {
+      this.toDos.push(task);
+      console.log(this.toDos);
+    }
   }]);
 
-  return Teste;
+  return ToDoList;
 }();
+
+var myList = new ToDoList();
+btn.addEventListener("click", function () {
+  myList.addToDo(task.value);
+});
